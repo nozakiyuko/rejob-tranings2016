@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>案件詳細</title>
+
+
+  </head>
+  <body>
+  <div>
+    <% Job.all.each do |job| %>
+    『<%= job.title %>』<br>
+    →<%= job.description %><br><br>
+    <% end %>
+    </div>
+  <div>
+　　　検索文言 <%= params[:aaa] %><br>
+  </div>
+
+    <div>
+      <a href="entry">エントリーページへ</a>
+    </div>
+  </body>
+</html>

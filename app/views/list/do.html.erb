@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="NOZAKI">
+    <meta name="description" content="リジョブのトップページです">
+    <meta name="keywords" content="リジョブ,求人,美容">
+    <title>野崎研修リジョブ</title>
+    <SCRIPT LANGUAGE="JavaScript">
+<!--
+function menuLink(linkLoc)
+{ if(linkLoc !="") { window.location.href=linkLoc;} }
+//-->
+</SCRIPT>
+    <base href="list">
+  </head>
+  <body>
+
+    <div>
+      <h1>案件</h1>
+        <a href="job">案件詳細へ</a>
+
+        <p>検索したい都道府県を選択してください。</p>
+
+      <p>
+　　
+        <form action="cgi-bin/formmail.cgi" method="area">
+          <select name = "area">
+            <option value="area_name">東京</option>
+            <option value="area_name">神奈川</option>
+
+          </select>
+        </form>
+      </p>
+      <a href="/list?area=<%= area.area_name %>"><button type="button"
+        style="background-color:peachpuff;width:200px;height:28px;"
+        onmouseover="this.style.background='#FF1493'"
+        onmouseout="this.style.background='#FFB6C1'">検索！</button></a>
+
+
+
+
+
+<div>
+案件は<%= @jobs.count %>件です<br>
+<% @jobs.each do |job| %>
+『<%= job.title %>』<br>
+→<%= job.description %><br><br>
+<% end %>
+</div>
+
+<% Area.all.each do |area| %>
+<a href="/list?area=<%= area.area_name %>"><%= area.area_name %></a><br>
+<% end %>
+
+  </body>
+</html>
