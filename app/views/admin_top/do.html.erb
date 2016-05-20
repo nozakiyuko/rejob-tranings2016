@@ -1,2 +1,23 @@
-<h1>AdminTop#do</h1>
-<p>Find me in app/views/admin_top/do.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>アドミン</title>
+  </head>
+  <body>
+
+
+    案件は<%= Job.count %>件です<br>
+    <% Job.all.each do |job| %>
+  <div>
+<a href="/job?=<%= job.id %>"><%= job.title %></a>
+  →<%= job.description %>
+<form  action="admin" method="get">
+<a href="/edit?=<%= job.id %>"><button type="submit" name="edit">編集</button></a>
+</form>
+<% end %>
+</div>
+<br><br>
+
+  </body>
+</html>

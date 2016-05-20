@@ -10,11 +10,24 @@
 <!--
 function menuLink(linkLoc)
 { if(linkLoc !="") { window.location.href=linkLoc;} }
+
+
+function start(){
+x=location.hash;
+if(x!=""){
+y=form1.select1.options;
+for(i=0;i<y.length;i++){
+z=y[i].value.indexOf(x,0)
+if(z!=-1){
+form1.select1.options[i].selected=true;
+}
+}
+}
+
 //-->
 </SCRIPT>
-    <base href="list">
   </head>
-  <body>
+  <body onload="start()">
 
     <div>
       <h1>案件</h1>
@@ -24,15 +37,28 @@ function menuLink(linkLoc)
 
       <p>
 　　
-        <form action="cgi-bin/formmail.cgi" method="area">
-          <select name = "area">
-            <option value="area_name">東京</option>
-            <option value="area_name">神奈川</option>
+      　　  <form  action="list" method="get" name="form1">
+              都道府県：<select name="area">
+                 <% Area.all.each do |area| %>
+                 <option value="/list?area=<%= area.area_name %>"><%= area.area_name %></option>
+                 <% end %>
+                 </select>
 
-          </select>
-        </form>
+                 <br><br>
+
+                <input type="submit" name="button" value="検索！"
+                onclick="menuLink(list.form1.area.options [ list.form1.area.selectedIndex ] .value)"
+
+                 style="background-color:peachpuff;width:200px;height:28px;"
+                 onmouseover="this.style.background='#FF1493'"
+                 onmouseout="this.style.background='#FFB6C1'">
+               </input>
+           </form>
+
+
+
       </p>
-      <a href="/list?area=<%= area.area_name %>"><button type="button"
+      <a href="list"><button type="button"
         style="background-color:peachpuff;width:200px;height:28px;"
         onmouseover="this.style.background='#FF1493'"
         onmouseout="this.style.background='#FFB6C1'">検索！</button></a>
@@ -40,8 +66,17 @@ function menuLink(linkLoc)
 
 
 
+        <form  action="list" method="get">
+        <select name="area">
+      <% Area.all.each do |area| %>
+      <!-- オブジェクト.each do |変数| -->
+      <!-- <a href="/search?area= -->
+      <option value=<%= area.area_name %>><%= area.area_name %><br></option>
+              <% end %>
+    </select>
+    <button type="search" name="button" >検索</button>
+    </form>
 
-<div>
 案件は<%= @jobs.count %>件です<br>
 <% @jobs.each do |job| %>
 『<%= job.title %>』<br>

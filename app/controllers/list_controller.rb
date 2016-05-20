@@ -3,9 +3,9 @@ class ListController < ApplicationController
   def do
     #@trend = params[:trend]
    #params[:trend] #sakuraが来ている
-   @jobs = Job.where(area: params[:area])
+   @jobs = Job.where(area: params[:area])#(カラム名: parms[:呼ぶURL?])
    @area = params[:area]
   # @area_all = Area.find_each([:area_name]) do |i|
-   @area_name = Area.where(area_name: params[:area_name])
+   @area_name = Area.where(area_name: params[:area])
   end
 end

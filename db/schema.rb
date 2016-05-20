@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20160517071426) do
   end
 
   create_table "admin_tops", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "area"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
