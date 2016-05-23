@@ -8,17 +8,19 @@
   </head>
   <body>
   <div>
-    <% Job.all.each do |job| %>
-    『<%= job.title %>』<br>
-    →<%= job.description %><br><br>
-    <% end %>
+<div>
+  『<%= @job.title %>』
+</div>
+
+<div>
+  <%= @job.description %>
+</div>
+
     </div>
-  <div>
-　　　検索文言 <%= params[:aaa] %><br>
-  </div>
 
     <div>
-      <a href="entry">エントリーページへ</a>
+      <a href="/entry/<%= @job.id %>">エントリーページへ</a><br>
+
     </div>
   </body>
 </html>

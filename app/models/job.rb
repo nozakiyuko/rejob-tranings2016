@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  
   has_many :jobs_areas
   has_many :job, through: :jobs_areas
 

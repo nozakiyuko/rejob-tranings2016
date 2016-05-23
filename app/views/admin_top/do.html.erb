@@ -10,14 +10,23 @@
     案件は<%= Job.count %>件です<br>
     <% Job.all.each do |job| %>
   <div>
-<a href="/job?=<%= job.id %>"><%= job.title %></a>
+<%= job.area %>
+<a href="/job/<%= job.id %>"><%= job.title %></a>
   →<%= job.description %>
 <form  action="admin" method="get">
-<a href="/edit?=<%= job.id %>"><button type="submit" name="edit">編集</button></a>
+  <form action="cgi-bin/formmail.cgi" method="post">
+<a href="/edit/<%= job.id %>"><button type="submit" name="edit">編集</button></a>
 </form>
 <% end %>
 </div>
-<br><br>
+<br>
+<div>
+  <form action="cgi-bin/formmail.cgi" method="post">
+    <input name="authenticity_token" type="hidden" value="1234" />
+  <a href="new_edit"><button type="submit" name="edit">新規作成ページへ</button></a>
+</form>
+</div>
+<br>
 
   </body>
 </html>

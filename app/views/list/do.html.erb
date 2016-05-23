@@ -29,60 +29,44 @@ form1.select1.options[i].selected=true;
   </head>
   <body onload="start()">
 
-    <div>
+
       <h1>案件</h1>
         <a href="job">案件詳細へ</a>
 
         <p>検索したい都道府県を選択してください。</p>
 
-      <p>
 　　
-      　　  <form  action="list" method="get" name="form1">
-              都道府県：<select name="area">
-                 <% Area.all.each do |area| %>
-                 <option value="/list?area=<%= area.area_name %>"><%= area.area_name %></option>
-                 <% end %>
-                 </select>
-
-                 <br><br>
-
-                <input type="submit" name="button" value="検索！"
-                onclick="menuLink(list.form1.area.options [ list.form1.area.selectedIndex ] .value)"
-
-                 style="background-color:peachpuff;width:200px;height:28px;"
-                 onmouseover="this.style.background='#FF1493'"
-                 onmouseout="this.style.background='#FFB6C1'">
-               </input>
-           </form>
 
 
 
-      </p>
-      <a href="list"><button type="button"
-        style="background-color:peachpuff;width:200px;height:28px;"
-        onmouseover="this.style.background='#FF1493'"
-        onmouseout="this.style.background='#FFB6C1'">検索！</button></a>
+  <form  action="list" method="get">
+  <select name="area">
 
-
-
-
-        <form  action="list" method="get">
-        <select name="area">
+    <option selected>▼都道府県選択</option>
       <% Area.all.each do |area| %>
       <!-- オブジェクト.each do |変数| -->
       <!-- <a href="/search?area= -->
-      <option value=<%= area.area_name %>><%= area.area_name %><br></option>
-              <% end %>
-    </select>
-    <button type="search" name="button" >検索</button>
-    </form>
+    <option value=<%= area.area_name %>><%= area.area_name %><br></option>
+      <% end %>
+  </select>
+    <button type="search" name="button"
+      style="background-color:peachpuff;width:200px;height:28px;"
+      onmouseover="this.style.background='#FF1493'"
+      onmouseout="this.style.background='#FFB6C1'">検索！</button>
+  </form>
 
-案件は<%= @jobs.count %>件です<br>
-<% @jobs.each do |job| %>
-『<%= job.title %>』<br>
-→<%= job.description %><br><br>
-<% end %>
+
+<div>
+  <%= @area %>の案件は<%= @jobs.count %>件です<br>
+  <% @jobs.each do |job| %>
+    <a href="/job/<%= job.id %>">『<%= job.title %>』</a><br>
+    →<%= job.description %><br><br>
+  <% end %>
 </div>
+
+
+
+
 
 <% Area.all.each do |area| %>
 <a href="/list?area=<%= area.area_name %>"><%= area.area_name %></a><br>

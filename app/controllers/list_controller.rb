@@ -7,5 +7,7 @@ class ListController < ApplicationController
    @area = params[:area]
   # @area_all = Area.find_each([:area_name]) do |i|
    @area_name = Area.where(area_name: params[:area])
+   @job_id = params[:id]
+   @job = Job.find_by(id: @job_id)
   end
 end
