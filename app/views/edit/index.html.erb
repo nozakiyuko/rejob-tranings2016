@@ -7,31 +7,35 @@
   <body>
 編集ぺーじ
 
-    <%= form_for @job, :url => {:action => 'confirm'} do |f| %>
-    <%= render :partial => 'form' %>
+ <form method="post" action="edit/<%= @job.id %>/thanks">
+  <input name="authenticity_token" type="hidden" value="1234" />
 
+ <p>タイトル<br>
+ <input type="text" name="title" size="50" value="<%= @job.title%>"></p>
 
-     <form action="confirm" class="new_edit" id="new_edit" method="post">
-       <input name="authenticity_token" type="hidden" value="1234" />
+ <p>説明文<br>
+ <textarea name="description" cols="50" rows="5">
+ <%= @job.description%>
+ </textarea></p>
 
+ <p>都道府県選択<br>
+ <select name="area">
+   <option selected><%= @job.area %></option>
+     <% Area.all.each do |area| %>
+     <!-- オブジェクト.each do |変数| -->
+     <!-- <a href="/search?area= -->
+   <option value=<%= area.area_name %>><%= area.area_name %><br></option>
+     <% end %>
+ </select></p>
+   <!-- <button type="search" name="button"
+     style="background-color:peachpuff;width:200px;height:28px;"
+     onmouseover="this.style.background='#FF1493'"
+     onmouseout="this.style.background='#FFB6C1'">検索！</button> -->
 
-       <div class="field">
-         <%= f.label :title, "名前" %>
-         <%= f.text_field :title %>
-       </div>
-
-       <div class="field">
-         <%= f.label :description, "説明文" %>
-         <%= f.text_field :description %>
-       </div>
-       <div class="field">
-         <%= f.label :area, "都道府県" %>
-         <%= f.text_field :area %>
-       </div>
-       <div class="actions">
-         <%= f.submit "保存する" %>
-       </div>
-</form>
-  <% end %>
+ <button type="submit" name="edit">更新</button>
+<!-- <a href="/edit/<%= @job.id %>/thanks">更新</a> -->
+  <a href="/delete/<%= @job.id %>">削除</a>
+   </form>
   </body>
+
 </html>

@@ -7,30 +7,42 @@
   </head>
   <body>
 
-    <%= form_for @new_edit, :url => {:action => 'confirm'} do |f| %>
+
+ <form method="post" action="new_edit/thanks">
+  <input name="authenticity_token" type="hidden" value="1234" />
+
+ <p>タイトル<br>
+   <input type="text" name="title" size="50"></p>
+</p>
+
+ <p>説明文<br>
+ <textarea name="description" cols="50" rows="5">
+
+ </textarea></p>
+
+  <p>都道府県選択<br>
+ <select name="area">
+   <option selected>▼都道府県選択</option>
+     <% Area.all.each do |area| %>
+     <!-- オブジェクト.each do |変数| -->
+     <!-- <a href="/search?area= -->
+   <option value=<%= area.area_name %>><%= area.area_name %><br></option>
+     <% end %>
+ </select></p>
 
 
-     <form action="confirm" class="new_edit" id="new_edit" method="post">
-       <input name="authenticity_token" type="hidden" value="1234" />
+
+<button type="submit" name="edit">作成</button>
 
 
-       <div class="field">
-         <%= f.label :title, "名前" %>
-         <%= f.text_field :title %>
-       </div>
-
-       <div class="field">
-         <%= f.label :description, "説明文" %>
-         <%= f.text_field :description %>
-       </div>
-       <div class="field">
-         <%= f.label :area, "都道府県" %>
-         <%= f.text_field :area %>
-       </div>
-       <div class="actions">
-         <%= f.submit "登録する" %>
-       </div>
+  <!-- <button type="search" name="button"
+    style="background-color:peachpuff;width:200px;height:28px;"
+    onmouseover="this.style.background='#FF1493'"
+    onmouseout="this.style.background='#FFB6C1'">検索！</button> -->
 </form>
-  <% end %>
+
+
+
+
   </body>
 </html>

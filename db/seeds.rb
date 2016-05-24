@@ -1,5 +1,6 @@
 Job.all.destroy_all
 Area.all.destroy_all
+User.all.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -8,6 +9,12 @@ Area.all.destroy_all
 #   cities = City.create([{ area_name: 'Chicago' }, { area_name: 'Copenhagen' }])
 
 # area_names = Area.create([{ area_name: '北海道'}, { area_name: '東京'}, { area_name: '神奈川'}])
+User.create(name: '野崎優子', kana: 'ノザキユウコ', sex: '女', age: 22, pass: 'a0000')
+User.create(name: '池上里実', kana: 'イケガミサトミ', sex: '女', age: 22, pass: 'b0000')
+User.create(name: '荻野夏帆', kana: 'オギノカホ', sex: '女', age: 22, pass: 'c0000')
+User.create(name: '黒田蓮', kana: 'クロダレン', sex: '男', age: 23, pass: 'd0000')
+User.create(name: '荒巻遵', kana: 'アラマキジュン', sex: '男', age: 23, pass: 'e0000')
+
 
 Job.create(title: '働くママさんも安心！', description: '周りには病院施設、調剤薬局などの施設が多数あり、女性のお客様の来店が非常に多いお店ですので女性の施術スタッフの方は働きやすい環境。', area: '東京都')
 Job.create(title: '★新規Open★', description: '社内独立制度有り！ 将来独立開業したい方、FCにご興味のある方お待ちしております。', area: '福島県')

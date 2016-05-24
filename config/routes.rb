@@ -18,20 +18,20 @@ Rails.application.routes.draw do
   get 'entry/:id' => 'entry#do'
   get 'entry_complete' => 'entry_complete#do'
   get 'job/:id' => 'job#do'
-  get 'mypage' => 'mypage#do'
-  get 'entry_manage' => 'entry_manage#do'
+  get 'mypage/:id' => 'mypage#do'
+  get 'mypage/thanks' => 'mypage#thanks'
+  get 'login/mypage' => 'mypage#new'  
+  get 'entry_manage/:id' => 'entry_manage#do'
   get 'admin_top' => 'admin_top#do'
   get 'admin_top' => 'admin_top#new'
-  get 'admin_list' => 'admin_list#index'
-  get 'detail' => 'detail#show'
   get 'edit/:id' => 'edit#index'
-  get 'edit/confirm' => 'edit#confirm'
-  get 'edit/thanks' => 'edit#thanks'
+  # delete 'edit/:id' => 'edit#destroy'
+  # patch 'edit/confirm' => 'edit#confirm'
+  post 'edit/edit/:id/thanks' => 'edit#thanks'
   get 'new_edit' => 'new_edit#index'            # 入力画面
- post 'new_edit/confirm' => 'new_edit#confirm'   # 確認画面
+ # post 'new_edit/confirm' => 'new_edit#confirm'   # 確認画面
  post 'new_edit/thanks' => 'new_edit#thanks'     # 送信完了画面
-
-
+ get 'delete/:id' => 'edit#delete'
   get 'area' => 'area#do'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

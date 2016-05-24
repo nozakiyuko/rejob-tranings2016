@@ -7,6 +7,7 @@ class NewEditController < ApplicationController
 def index
     # 入力画面を表示
     @new_edit = Job.new
+
     #(params[:new_edit])
     #render :action => 'index'
 
@@ -17,30 +18,17 @@ def index
   # end
   end
 
-  def confirm
-    # 入力値のチェック
-    @new_edit = Job.new(job_params)
-    if @new_edit.valid?
-      # OK。確認画面を表示
-      render :action => '/confirm'
+
+
+  def thanks
+    if
+      Job.create(title: params[:title], description: params[:description], area: params[:area],)
+      flash[:notice] = "送信完了"
+      redirect_to '/admin_top'
     else
-      # NG。入力画面を再表示
-      render :action => 'index'
+      flash[:notice] = "送信できませんでした"
+      redirect_to '/index'
     end
   end
 
-  def thanks
-    # メール送信
-    @new_edit = Job.new(job_params)
-    @new_edit.save
-    # JobMailer.received_email(@new_edit).deliver
-
-    # 完了画面を表示
-    render :action => 'thanks'
-  end
-
-  def job_params
-    params.require(:job).permit(:title,:description,:area)
-
-  end
 end

@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517071426) do
+ActiveRecord::Schema.define(version: 20160524030058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admin_lists", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "admin_tops", force: true do |t|
     t.string   "title"
@@ -35,12 +30,10 @@ ActiveRecord::Schema.define(version: 20160517071426) do
     t.datetime "updated_at"
   end
 
-  create_table "details", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "edits", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "area"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -94,6 +87,16 @@ ActiveRecord::Schema.define(version: 20160517071426) do
   create_table "tops", force: true do |t|
     t.string   "title"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "kana"
+    t.string   "sex"
+    t.integer  "age"
+    t.string   "pass"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

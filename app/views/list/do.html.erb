@@ -31,14 +31,9 @@ form1.select1.options[i].selected=true;
 
 
       <h1>案件</h1>
-        <a href="job">案件詳細へ</a>
-
-        <p>検索したい都道府県を選択してください。</p>
-
-　　
 
 
-
+検索したい都道府県を選択してください。
   <form  action="list" method="get">
   <select name="area">
 
@@ -64,13 +59,20 @@ form1.select1.options[i].selected=true;
   <% end %>
 </div>
 
+案件詳細一覧
+<% Job.all.each do |job| %>
+<div>
+<%= job.area %>
+<a href="/job/<%= job.id %>"><%= job.title %></a>
+  →<%= job.description %>
+<% end %>
+</div>
 
 
-
-
+<!--
 <% Area.all.each do |area| %>
 <a href="/list?area=<%= area.area_name %>"><%= area.area_name %></a><br>
-<% end %>
+<% end %> -->
 
   </body>
 </html>
