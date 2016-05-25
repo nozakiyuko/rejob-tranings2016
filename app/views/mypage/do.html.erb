@@ -5,6 +5,20 @@
     <title>マイページ</title>
   </head>
   <body>
-    マイページ
+<h1>MYPAGE</h1>
+
+<div>
+<h2>Your Profile</h2>
+    name:<%= @user.name %>
+</div>
+<div>
+  <h2>Your entry</h2>
+</div>
+
+<div>
+      <form action="logout" method="destroy">
+        <button type="submit" name="delete">ログアウト</button>
+      </form>
+</div>
   </body>
 </html>

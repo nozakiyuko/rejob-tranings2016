@@ -14,7 +14,7 @@ class EditController < ApplicationController
       @job = Job.find_by(id: @job_id)
       if
           @job.update(title: params[:title], description: params[:description], area: params[:area],)
-          flash[:notice] = "送信完了"
+          flash[:notice] = "編集が完了しました"
           redirect_to '/admin_top'
         else
           flash[:notice] = "送信できませんでした"

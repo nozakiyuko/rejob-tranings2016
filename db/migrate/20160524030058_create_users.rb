@@ -5,7 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :kana
       t.string :sex
       t.integer :age
-      t.string :pass
+      t.string :email
+      t.string :password
 
       t.timestamps
     end
