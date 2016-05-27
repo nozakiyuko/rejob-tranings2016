@@ -14,7 +14,12 @@
 
 <div>
 <a href="admin_user">求職者一覧へ</a>
-
+</div>
+<div>
+  <form action="cgi-bin/formmail.cgi" method="post">
+  <input name="authenticity_token" type="hidden" value="1234" />
+    <a href="new_edit"><button type="submit" name="edit">新規作成ページへ</button></a>
+</form>
 </div>
     案件は<%= Job.count %>件です<br>
   <div>

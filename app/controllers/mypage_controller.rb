@@ -43,6 +43,7 @@ end
 
   def destroy
     session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
     redirect_to "/top"
   end
 end

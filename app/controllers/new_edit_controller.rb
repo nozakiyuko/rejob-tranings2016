@@ -17,10 +17,28 @@ def index
       #render :new
   # end
   end
+  #
+  # def read(length=nil, buffer=nil)
+  #   @tempfile.read(length, buffer)
+  # end
+#
+# def require "cgi"
+# cgi = CGI.new
+# print "Content-type: text/html\n\n"
+# open("./upload.jpg","w") do |fh|
+# fh.binmode
+# fh.write cgi['image'].read
+# end
+# end
 
 
 
-  def thanks
+  def create
+    @job = Job.new
+    @job.title = params[:title]
+    @job.description = params[:description]
+    @job.area = params[:area]
+    @job.image = params[:image].read
     if
       Job.create(title: params[:title], description: params[:description], area: params[:area], image: params[:image])
       flash[:notice] = "送信完了"
@@ -30,5 +48,4 @@ def index
       redirect_to '/index'
     end
   end
-
 end

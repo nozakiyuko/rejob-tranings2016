@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'entry/:id' => 'job#entry'
   get 'entry/entry/:id' => 'job#create'
   post 'job' => 'job#create'
-  get 'to_entry' => 'job#to_entry'
+  get '/job/to_entry/:id' => 'job#to_entry'
 
   get 'mypage/:id' => 'mypage#do'
   get 'login/thanks' => 'mypage#thanks'
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   post 'edit/edit/:id/thanks' => 'edit#thanks'
   get 'new_edit' => 'new_edit#index'            # 入力画面
  # post 'new_edit/confirm' => 'new_edit#confirm'   # 確認画面
-  post 'new_edit/thanks' => 'new_edit#thanks'     # 送信完了画面
+  post 'new_edit/create' => 'new_edit#create'     # 送信完了画面
   get 'delete/:id' => 'edit#delete'
   get 'area' => 'area#do'
   # get    'login'   => 'sessions#new'

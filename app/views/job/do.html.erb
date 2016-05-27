@@ -17,7 +17,10 @@
 </div>
 
     <div>
-      <a href="/to_entry">エントリーページへ</a><br>
+
+      <form method="get" action="to_entry/<%= @job.id %>">
+       <input name="authenticity_token" type="hidden" value="1234" />
+       <button type="submit" name="entry">応募</button>
     </div>
   </body>
 </html>
