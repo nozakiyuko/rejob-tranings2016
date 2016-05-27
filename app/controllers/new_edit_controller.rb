@@ -22,7 +22,7 @@ def index
 
   def thanks
     if
-      Job.create(title: params[:title], description: params[:description], area: params[:area],)
+      Job.create(title: params[:title], description: params[:description], area: params[:area], image: params[:image])
       flash[:notice] = "送信完了"
       redirect_to '/admin_top'
     else

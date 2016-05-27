@@ -6,7 +6,9 @@
   </head>
   <body>
 <h1>MYPAGE</h1>
-
+<% flash.each do |key, value| %>
+<%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
 <div>
 <h2>Your Profile</h2>
     name:<%= @user.name %>
@@ -15,10 +17,17 @@
   <h2>Your entry</h2>
 </div>
 
+応募数
+<%= @entries.count %>
+<%= @entries.pluck(:id) %>
+
+
 <div>
-      <form action="logout" method="destroy">
-        <button type="submit" name="delete">ログアウト</button>
-      </form>
+  <a href="/logout"> ログアウト </a><br>
+
+<a href="/top">Topへ</a><br>
+<a href="/list">案件一覧へ</a><br>
+
 </div>
   </body>
 </html>

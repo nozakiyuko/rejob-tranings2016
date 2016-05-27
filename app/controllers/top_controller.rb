@@ -1,6 +1,15 @@
 class TopController < ApplicationController
   def do
-    # @text = 'インスタンス変数'
-    # text = '普通の変数'
+    @_current_user ||= User.find_by(id: session[:user_id])
+      @user = User.find_by(id: params[:id])
+  end
+
+  def login
+     if session[:user_id].present?
+        redirect_to "/mypage/#{session[:user_id]}"
+    else
+        flash[:danger] = 'ログインしてください'
+        redirect_to "/login/mypage"
+    end
   end
 end

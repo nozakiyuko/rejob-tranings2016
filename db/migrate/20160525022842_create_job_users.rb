@@ -1,6 +1,6 @@
-class CreateJobsUsers < ActiveRecord::Migration
+class CreateJobUsers < ActiveRecord::Migration
   def change
-    create_table :jobs_users do |t|
+    create_table :job_users do |t|
       t.integer :job_id
       t.integer :user_id
 

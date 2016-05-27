@@ -1,9 +1,28 @@
 class MypageController < ApplicationController
   def do
+    @user = User.find_by(id: params[:id])
+    # @user = User.find(params[:id])
+    @entries = JobUser.where(user_id: params[:id])
+    #既にログインしてるからparams[:id]はuserのidが入っている。ログインユーザーidのJobUserが出る。
+    # @entry_count = JobUser.find(params[:id]
+
+    if session[:user_id] == params[:id].to_i
+
+    else
+      redirect_to "/top"
+  end
+end
+
+  def thanks
+    if session[:user_id].present?
+       redirect_to "/mypage/#{session[:user_id]}"
+    else
+       flash[:danger] = 'ログインしてください'
+       redirect_to "/login/mypage"
 
   end
-  def new
-  end
+end
+
 
   def create
     user = User.find_by(email: params[:email])
@@ -21,19 +40,9 @@ class MypageController < ApplicationController
   end
   end
 
-def do
-  @user = User.find_by(id: params[:id])
-  if session[:user_id] == params[:id].to_i
-
-  else
-    redirect_to "/top"
-
-end
-end
 
   def destroy
-    # @_current_userとsession[:user_id]の値をnilにする
-@_current_user = session[:user_id] = nil
-redirect_to "/top"
+    session[:user_id] = nil
+    redirect_to "/top"
   end
 end

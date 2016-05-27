@@ -1,7 +1,6 @@
 class EditController < ApplicationController
 
   def index
-    # @job = Job.new(job_params)
      @job_id = params[:id]
      @job = Job.find_by(id: @job_id)
         # 入力画面を表示

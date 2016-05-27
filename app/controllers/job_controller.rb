@@ -2,7 +2,27 @@ class JobController < ApplicationController
   def do
     @job_id = params[:id]
     @job = Job.find_by(id: @job_id)
+end
 
-    #@jobss = Job.where(id: params[:id])　#これがないとid先へのリンクにならないのはなぜー！
-  end
+  def create
+     if session[:user_id].present?
+    #  if session[:user_id] == params[:id].to_i
+
+JobUser.create(job_id: params[:id], user_id: session[:user_id])
+      #これ何？？
+      # user = User.find(params[:id])
+      # sign_in user
+      flash[:success] = "応募が完了しました!"
+      redirect_to "/mypage/#{session[:user_id]}"
+    else
+      flash[:danger] = 'ログインしてください'
+      redirect_to "/login/mypage"
+end
+end
+def entry
+  @job = params[:id]
+  @_current_user ||= User.find_by(id: session[:user_id])
+end
+
+
 end

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ログインページ</title>
+  </head>
+  <body>
+    login
+    <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
+    <form action="login" method="get">
+  <!-- <input name="authenticity_token" type="hidden"  value="1234" /> -->
+
+Email
+  <input type="text" name="email" size="40"><br>
+Password
+  <input type="password" name="password" size="40"><br>
+
+  <input type="submit" value="Log in" />
+</form>
+
+<a href="/user">登録がまだの方はこちらから新規登録を</a>
+
+  </body>
+</html>

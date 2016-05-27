@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>エントリーページ</title>
+  </head>
+  <body>
+エントリーページ
+
+<form method="get" action="entry/<%= @job %>">
+ <input name="authenticity_token" type="hidden" value="1234" />
+
+ <p>名前<br>
+ <input type="text" name="entry" size="50" value="<%= @_current_user.name%>"></p>
+
+
+ <button type="submit" name="entry">応募</button>
+ </form>
+
+
+  </body>
+</html>

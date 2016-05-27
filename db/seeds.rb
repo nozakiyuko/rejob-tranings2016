@@ -1,6 +1,7 @@
 Job.all.destroy_all
 Area.all.destroy_all
 User.all.destroy_all
+JobUser.all.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -85,5 +86,13 @@ Area.create(area_name: '大分県')
 Area.create(area_name: '宮崎県')
 Area.create(area_name: '鹿児島県')
 Area.create(area_name: '沖縄県')
+
+JobUser.create(job_id: 1, user_id: 1)
+JobUser.create(job_id: 1, user_id: 2)
+JobUser.create(job_id: 2, user_id: 3)
+JobUser.create(job_id: 3, user_id: 4)
+JobUser.create(job_id: 3, user_id: 1)
+JobUser.create(job_id: 4, user_id: 1)
+JobUser.create(job_id: 3, user_id: 2)
 
 puts 'やったね！'

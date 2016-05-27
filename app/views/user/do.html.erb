@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ユーザー登録ページ</title>
+  </head>
+  <body>
+    新規ユーザー登録
+    <form method="post" action="user/new">
+     <input name="authenticity_token" type="hidden" value="1234" />
+
+    <p>名前<br>
+      <input type="text" name="name" size="50" placeholder="山田花子"></p>
+    <p>フリガナ<br>
+      <input type="text" name="kana" size="50" placeholder="ヤマダハナコ"></p>
+    <p>性別<br>
+      <input type="radio" name="sex" value="女性"> 女性
+      <input type="radio" name="sex" value="男性"> 男性</p>
+    <p>年齢<br>
+      <input type="text" name="age" size="50" placeholder="24"></p>
+    <p>メールアドレス<br>
+      <input type="text" name="email" size="50" placeholder="hanako@gmail.com"></p>
+    <p>パスワード<br>
+      <input type="password" name="password" size="50" placeholder="******"></p>
+
+
+
+
+   <button type="submit" name="edit">作成</button>
+
+
+     <!-- <button type="search" name="button"
+       style="background-color:peachpuff;width:200px;height:28px;"
+       onmouseover="this.style.background='#FF1493'"
+       onmouseout="this.style.background='#FFB6C1'">検索！</button> -->
+   </form>
+
+  </body>
+</html>

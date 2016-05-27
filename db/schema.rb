@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525021809) do
+ActiveRecord::Schema.define(version: 20160525022842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,19 +38,9 @@ ActiveRecord::Schema.define(version: 20160525021809) do
     t.datetime "updated_at"
   end
 
-  create_table "entries", force: true do |t|
-    t.integer  "user_id"
+  create_table "job_users", force: true do |t|
     t.integer  "job_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "entry_completes", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "entry_manages", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,13 +49,7 @@ ActiveRecord::Schema.define(version: 20160525021809) do
     t.string   "title"
     t.string   "description"
     t.string   "area"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "jobs_users", force: true do |t|
-    t.integer  "job_id"
-    t.integer  "user_id"
+    t.binary   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

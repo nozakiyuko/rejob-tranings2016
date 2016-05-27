@@ -10,18 +10,23 @@
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
+<h1>Job List</h1>
 
+<div>
+<a href="admin_user">求職者一覧へ</a>
+
+</div>
     案件は<%= Job.count %>件です<br>
-    <% Job.all.each do |job| %>
   <div>
-  <%= job.area %>
-    <a href="/job/<%= job.id %>"><%= job.title %></a>
-      →<%= job.description %>
-<form  action="admin" method="get">
-  <form action="cgi-bin/formmail.cgi" method="post">
-<a href="/edit/<%= job.id %>"><button type="submit" name="edit">編集</button></a>
-</form>
+    <% Job.all.each do |job| %>
+    <%= job.area %><br>
+      <a href="/job/<%= job.id %>"><%= job.title %></a><br>
+        →<%= job.description %><br>
+        応募数:<%= JobUser.where(job_id: job.id).count %><br>
+        <a href="/edit/<%= job.id %>"><button type="submit" name="edit">編集</button></a><br>
+
 <% end %>
+
 </div>
 <br>
 

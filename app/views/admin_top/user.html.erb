@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>UserADMIN</title>
+  </head>
+  <body>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+<h1>User List</h1>
+
+<p>登録者は<%= User.count %>人です</p>
+  <div>
+    <% User.all.each do |user| %>
+      name : <%= user.name %><br>
+      kana : <%= user.kana %><br>
+      性別 : <%= user.sex %><br>
+      年齢 : <%= user.age %><br>
+      応募数:<%= User.find_by(id: user.id).job_users.count %><br>
+    <% end %>
+  </div>
+
+
+  </body>
+</html>
