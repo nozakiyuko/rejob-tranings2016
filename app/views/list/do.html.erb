@@ -28,7 +28,38 @@ form1.select1.options[i].selected=true;
 </SCRIPT>
   </head>
   <body onload="start()">
+    <div class="header">
 
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a href="/user/new">新規登録</a></li>
+          <li><a href="/logout">ログアウト</a></li>
+          <li><a href="/admin_top">adminログイン</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo" href="/top"><img class="logo_header" src="http://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/ra112/users/5/1/8/9/buffie1019-img600x600-1414479649tcza9m19724.jpg" alt="Logo header"></a>
+
+
+
+      <ul class="header-middle__nav">
+        <li>
+          <a href="/job_keep" rel="nofollow"><i class="icon-attach"></i>キープ
+          </a>
+        </li>
+          <li><a href="/mypage/job_scouts" rel="nofollow"><i class="icon-paper-plane"></i>スカウト管理</a></li>
+          <li><a href="/mypage/entries" rel="nofollow"><i class="icon-folder"></i>応募管理</a></li>
+          <li><a href="/login/thanks" class="crrent"><i class="icon-user-1"></i>マイページ</a></li>
+      </ul>
+
+        </div>
+      </div>
+
+
+<div class="content">
 
       <h1>案件</h1>
 
@@ -36,7 +67,6 @@ form1.select1.options[i].selected=true;
 検索したい都道府県を選択してください。
   <form  action="list" method="get">
   <select name="area">
-
     <option selected>▼都道府県選択</option>
       <% Area.all.each do |area| %>
       <!-- オブジェクト.each do |変数| -->
@@ -44,35 +74,142 @@ form1.select1.options[i].selected=true;
     <option value=<%= area.area_name %>><%= area.area_name %><br></option>
       <% end %>
   </select>
-    <button type="search" name="button"
-      style="background-color:peachpuff;width:200px;height:28px;"
-      onmouseover="this.style.background='#FF1493'"
-      onmouseout="this.style.background='#FFB6C1'">検索！</button>
+  <button name="button" type="submit" class="btn btn--xsmall btn--pt3 w-100px">検索！</button>
   </form>
 
 
-<div>
-  <%= @area %>の案件は<%= @jobs.count %>件です<br>
-  <% @jobs.each do |job| %>
-    <a href="/job/<%= job.id %>">『<%= job.title %>』</a><br>
-    →<%= job.description %><br><br>
-  <% end %>
-</div>
+      <%= @area %>の案件は<%= @jobs.count %>件です<br>
+        <% @jobs.each do |job| %>
+  <section class="search-job-box">
 
-案件詳細一覧
-<% Job.all.each do |job| %>
-<div>
-<%= job.area %>
-<a href="/job/<%= job.id %>"><%= job.title %></a>
-  →<%= job.description %>
-<% end %>
-</div>
+      <div class="search-job-box__header table_row">
+        <div class="cols_8">
+          <span class="search-job-box__header__corp">
+          <%= @area %>
+          </span>
+
+          <h2 class="search-job-box__header__title">
+            <a href="/job/<%= job.id %>">『<%= job.title %>』</a>
+          </h2>
+        </div>
+        <div class="cols_4 v_bottom">
+          <span class="ml_1 f_right label__oiwai label__oiwai--5000"></span>
+          <div class="label__search-job-box">
+          </div>
+        </div>
+      </div>
 
 
-<!--
-<% Area.all.each do |area| %>
-<a href="/list?area=<%= area.area_name %>"><%= area.area_name %></a><br>
-<% end %> -->
+      <div class="search-job-box__content">
+        <div class="pct">
+          <a href="/job/1011389">
+            <figure>
+                <img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/CANXkC/BRM1lj/vQrcdu/T4SsBx/qFc/shop_album.jpg">
+            </figure>
+          </a>
+        </div>
+        <div class="info">
+            <p class="mb_15">
+            <%= job.description %>
+            </p>
+        </div>
+      </div>
 
+      <div class="search-job-box__footer">
+          <div class="table_row">
+            <div class="cols_5">
+              <div class="info-box--tell">
+                <span class="txt_size_12">TEL応募：</span><span class="txt_size_18 rj_typo_color-c">0120-954-077</span><br>
+                <span class="txt_size_12">求人番号：<%= job.id %></span>　<span class="txt_size_10">求人番号をお控え下さい。</span>
+              </div>
+            </div>
+            <div class="cols_7 t_right txt_size_16">
+              <div class="js_bookmark_area">
+
+    <form class="js_add_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="tVkQSGru5Rvf0cuvtEqO0Qc3MQntRDWqz+0qkxr9aPyzJIA+dU5pMlfFHWKvwFXpG1zRrv43+ODIpxLIXHUTOA==">
+      <input type="hidden" name="job[code]" value="1011389">
+  </form>
+    <form class="js_remove_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="delete"><input type="hidden" name="authenticity_token" value="tVkQSGru5Rvf0cuvtEqO0Qc3MQntRDWqz+0qkxr9aPyzJIA+dU5pMlfFHWKvwFXpG1zRrv43+ODIpxLIXHUTOA==">
+      <input type="hidden" name="job[code]" value="1011389">
+  </form>
+                <a href="javascript:void(0)" class="btn btn--entry01 w-140px" data-bookmark-status="1"><i class="icon-attach"></i>キープする </a>
+              <a href="/job/<%= job.id %>" class="btn btn--entry01 w-140px">詳細を見る</a>
+                <a href="job/to_entry/<%= job.id %>" class="btn btn--entry01 btn--pt3 btn--kantan w-240px" name="entry" rel="nofollow"> WEB応募する </a>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+        </section>
+           <% end %>
+
+
+▼案件一覧
+  <% Job.all.each do |job| %>
+<section class="search-job-box">
+    <div class="search-job-box__header table_row">
+      <div class="cols_8">
+        <span class="search-job-box__header__corp">
+        <%= job.area %>
+        </span>
+
+        <h2 class="search-job-box__header__title">
+          <a href="/job/<%= job.id %>">『<%= job.title %>』</a>
+        </h2>
+      </div>
+      <div class="cols_4 v_bottom">
+        <span class="ml_1 f_right label__oiwai label__oiwai--5000"></span>
+        <div class="label__search-job-box">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="search-job-box__content">
+      <div class="pct">
+        <a href="/job/1011389">
+          <figure>
+              <img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/CANXkC/BRM1lj/vQrcdu/T4SsBx/qFc/shop_album.jpg">
+          </figure>
+        </a>
+      </div>
+      <div class="info">
+          <p class="mb_15">
+          <%= job.description %>
+          </p>
+      </div>
+    </div>
+
+    <div class="search-job-box__footer">
+        <div class="table_row">
+          <div class="cols_5">
+            <div class="info-box--tell">
+              <span class="txt_size_12">TEL応募：</span><span class="txt_size_18 rj_typo_color-c">0120-954-077</span><br>
+              <span class="txt_size_12">求人番号：<%= job.id %></span>　<span class="txt_size_10">求人番号をお控え下さい。</span>
+            </div>
+          </div>
+          <div class="cols_7 t_right txt_size_16">
+            <div class="js_bookmark_area">
+
+  <form class="js_add_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="tVkQSGru5Rvf0cuvtEqO0Qc3MQntRDWqz+0qkxr9aPyzJIA+dU5pMlfFHWKvwFXpG1zRrv43+ODIpxLIXHUTOA==">
+    <input type="hidden" name="job[code]" value="1011389">
+</form>
+  <form class="js_remove_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="delete"><input type="hidden" name="authenticity_token" value="tVkQSGru5Rvf0cuvtEqO0Qc3MQntRDWqz+0qkxr9aPyzJIA+dU5pMlfFHWKvwFXpG1zRrv43+ODIpxLIXHUTOA==">
+    <input type="hidden" name="job[code]" value="1011389">
+</form>
+              <a href="javascript:void(0)" class="btn btn--entry01 w-140px" data-bookmark-status="1"><i class="icon-attach"></i>キープする </a>
+            <a href="/job/<%= job.id %>" class="btn btn--entry01 w-140px">詳細を見る</a>
+              <a href="job/to_entry/<%= job.id %>" class="btn btn--entry01 btn--pt3 btn--kantan w-240px" name="entry" rel="nofollow"> WEB応募する </a>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+      </section>
+         <% end %>
+
+     </div>
   </body>
 </html>
