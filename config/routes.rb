@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'topto' => 'top#login'
   get 'list' => 'list#do'
   get 'entry_complete' => 'entry_complete#do'
+
   get 'job/:id' => 'job#do'
   get 'entry/:id' => 'job#entry'
   get 'entry/entry/:id' => 'job#create'
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
   get 'logout'  => 'mypage#destroy'
 
   get 'entry_manage/:id' => 'entry_manage#do'
+
   get 'admin_top' => 'admin_top#do'
   get 'admin_top' => 'admin_top#new'
   get 'admin_user' => 'admin_top#user'
@@ -47,6 +49,16 @@ Rails.application.routes.draw do
   post 'new_edit/create' => 'new_edit#create'     # 送信完了画面
   get 'delete/:id' => 'edit#delete'
   get 'area' => 'area#do'
+  get 'image_test' => 'top#image_test_form'
+  post 'image_create' => 'top#image_create'
+  # get 'show' => 'top#show_image'
+
+  resources :images
+resources :images do
+  member do
+    get 'show_image'
+  end
+end
   # get    'login'   => 'sessions#new'
   # post   'login'   => 'sessions#create'
   # delete 'logout'  => 'sessions#destroy'

@@ -29,7 +29,6 @@
         →<%= job.description %><br>
         応募数:<%= JobUser.where(job_id: job.id).count %><br>
         <a href="/edit/<%= job.id %>"><button type="submit" name="edit">編集</button></a><br>
-
 <% end %>
 
 </div>
