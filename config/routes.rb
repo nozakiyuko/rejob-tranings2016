@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :pictures
+
   get 'top/do'
   get 'list/do'
   get 'area/do'

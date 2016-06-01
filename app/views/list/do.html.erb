@@ -6,27 +6,8 @@
     <meta name="description" content="リジョブのトップページです">
     <meta name="keywords" content="リジョブ,求人,美容">
     <title>野崎研修リジョブ</title>
-    <SCRIPT LANGUAGE="JavaScript">
-<!--
-function menuLink(linkLoc)
-{ if(linkLoc !="") { window.location.href=linkLoc;} }
+      <%= stylesheet_link_tag "top", :media => "all" %>
 
-
-function start(){
-x=location.hash;
-if(x!=""){
-y=form1.select1.options;
-for(i=0;i<y.length;i++){
-z=y[i].value.indexOf(x,0)
-if(z!=-1){
-form1.select1.options[i].selected=true;
-}
-}
-}
-
-//-->
-</SCRIPT>
-  </head>
   <body onload="start()">
     <div class="header">
 
@@ -61,9 +42,7 @@ form1.select1.options[i].selected=true;
 
 <div class="content">
 
-      <h1>案件</h1>
-
-
+<div class="srech-area-nozaki">
 検索したい都道府県を選択してください。
   <form  action="list" method="get">
   <select name="area">
@@ -76,9 +55,14 @@ form1.select1.options[i].selected=true;
   </select>
   <button name="button" type="submit" class="btn btn--xsmall btn--pt3 w-100px">検索！</button>
   </form>
-
-
-      <%= @area %>の案件は<%= @jobs.count %>件です<br>
+</div>
+  <div class="search-pagenate-top">
+    <div class="f_left">
+      <span class="rj_typo_color-f"><%= @area %>の案件は</span>
+      <span class="txt_size_20 rj_typo_color-c"><%= @jobs.count %></span>
+      <span class="rj_typo_color-f">件です</span>
+    </div>
+  </div>
         <% @jobs.each do |job| %>
   <section class="search-job-box">
 
@@ -132,7 +116,6 @@ form1.select1.options[i].selected=true;
     <form class="js_remove_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="delete"><input type="hidden" name="authenticity_token" value="tVkQSGru5Rvf0cuvtEqO0Qc3MQntRDWqz+0qkxr9aPyzJIA+dU5pMlfFHWKvwFXpG1zRrv43+ODIpxLIXHUTOA==">
       <input type="hidden" name="job[code]" value="1011389">
   </form>
-                <a href="javascript:void(0)" class="btn btn--entry01 w-140px" data-bookmark-status="1"><i class="icon-attach"></i>キープする </a>
               <a href="/job/<%= job.id %>" class="btn btn--entry01 w-140px">詳細を見る</a>
                 <a href="job/to_entry/<%= job.id %>" class="btn btn--entry01 btn--pt3 btn--kantan w-240px" name="entry" rel="nofollow"> WEB応募する </a>
               </div>
@@ -198,7 +181,6 @@ form1.select1.options[i].selected=true;
   <form class="js_remove_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="delete"><input type="hidden" name="authenticity_token" value="tVkQSGru5Rvf0cuvtEqO0Qc3MQntRDWqz+0qkxr9aPyzJIA+dU5pMlfFHWKvwFXpG1zRrv43+ODIpxLIXHUTOA==">
     <input type="hidden" name="job[code]" value="1011389">
 </form>
-              <a href="javascript:void(0)" class="btn btn--entry01 w-140px" data-bookmark-status="1"><i class="icon-attach"></i>キープする </a>
             <a href="/job/<%= job.id %>" class="btn btn--entry01 w-140px">詳細を見る</a>
               <a href="job/to_entry/<%= job.id %>" class="btn btn--entry01 btn--pt3 btn--kantan w-240px" name="entry" rel="nofollow"> WEB応募する </a>
             </div>

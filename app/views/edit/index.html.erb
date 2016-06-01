@@ -3,9 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>編集ページ</title>
+      <%= stylesheet_link_tag "admin_top", :media => "all" %>
   </head>
   <body>
-編集ぺーじ
+    <div id="wrapper">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span><span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="/admin_top">happyhappy2016管理画面</a>
+      <div class="navbar-text"><small><a class="color-off" href="/admin_top">v2</a></small>
+      </div>
+    </div>
+    <ul class="nav navbar-right top-nav">
+      <li class="dropdown"><a class="dropdown-toggle"data-toggle="dropdown"><i class="fa fa-user">野崎 優子</i><b class="caret"></b></a>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav">
+            <li><a href="/admin_top">求人管理</a></li>
+            <li><a href="/admin_user">求職者管理</a></li>
+            <li><a href="/new_edit">新規求人作成</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="page-wrapper">
+        <h1 class="page-header">編集ページ</h1>
 
  <form method="post" action="edit/<%= @job.id %>/thanks">
   <input name="authenticity_token" type="hidden" value="1234" />

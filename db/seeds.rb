@@ -17,7 +17,7 @@ User.create(name: '黒田蓮', kana: 'クロダレン', sex: '男', age: 23, ema
 User.create(name: '荒巻遵', kana: 'アラマキジュン', sex: '男', age: 23, email: 'aramaki@rejob.co.jp', password: 'e0000')
 
 
-Job.create(title: '働くママさんも安心！', description: '周りには病院施設、調剤薬局などの施設が多数あり、女性のお客様の来店が非常に多いお店ですので女性の施術スタッフの方は働きやすい環境。', area: '東京都')
+Job.create(title: '働くママさんも安心！', description: '周りには病院施設、調剤薬局などの施設が多数あり、女性のお客様の来店が非常に多いお店ですので女性の施術スタッフの方は働きやすい環境。', area: '東京都', image:'http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/73458_original.jpg')
 Job.create(title: '★新規Open★', description: '社内独立制度有り！ 将来独立開業したい方、FCにご興味のある方お待ちしております。', area: '福島県')
 Job.create(title: '和やかな雰囲気の職場です★', description: '都会の喧騒を忘れ、リラックスリゾートで、お客様にあなたのすばらしい癒しを提供しませんか。', area: '神奈川県')
 Job.create(title: '経験者優遇します', description: '「ありがとう」と言える心を大切にし、 皆様から「ありがとう」と言われる企業として成長し続けます。', area: '埼玉県')

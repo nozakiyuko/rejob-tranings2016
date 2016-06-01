@@ -40,5 +40,7 @@ gem 'better_errors'
 # better_errorsの画面上にirb/pry(PERL)を表示する
 gem 'binding_of_caller'
 
+gem "paperclip"
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]

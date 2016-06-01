@@ -38,7 +38,7 @@ def index
     @job.title = params[:title]
     @job.description = params[:description]
     @job.area = params[:area]
-    @job.image = params[:image].read
+    # @job.image = params[:image].read
     if
       Job.create(title: params[:title], description: params[:description], area: params[:area], image: params[:image])
       flash[:notice] = "送信完了"

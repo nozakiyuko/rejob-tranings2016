@@ -3,25 +3,63 @@
   <head>
     <meta charset="utf-8">
     <title>UserADMIN</title>
+    <%= stylesheet_link_tag "admin_top", :media => "all" %>
   </head>
   <body>
+    <div id="wrapper">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span><span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="/admin_top">happyhappy2016管理画面</a>
+      <div class="navbar-text"><small><a class="color-off" href="/admin_top">v2</a></small>
+      </div>
+    </div>
+    <ul class="nav navbar-right top-nav">
+      <li class="dropdown"><a class="dropdown-toggle"data-toggle="dropdown"><i class="fa fa-user">野崎 優子</i><b class="caret"></b></a>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav">
+            <li><a href="/admin_top">求人管理</a></li>
+            <li><a href="/admin_user">求職者管理</a></li>
+            <li><a href="/new_edit">新規求人作成</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-<h1>User List</h1>
+      <div id="page-wrapper">
+        <h1 class="page-header">求職者一覧</h1>
+        <ol class="breadcrumb">
+        登録数は<%= User.count %>件です
+        </ol>
+        <div class="alert alert-danger">
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "#{key}") %>
+            <% end %>
+        </div>
 
-<p>登録者は<%= User.count %>人です</p>
-  <div>
-    <% User.all.each do |user| %>
-      name : <%= user.name %><br>
-      kana : <%= user.kana %><br>
-      性別 : <%= user.sex %><br>
-      年齢 : <%= user.age %><br>
-      応募数:<%= User.find_by(id: user.id).job_users.count %><br>
-    <% end %>
-  </div>
-
-
+          <table class="table table-bordered table-hover table-striped">
+          <thead><tr>
+            <th>求職者ID</th>
+            <th>氏名</th>
+            <th>カナ</th>
+            <th>性別</th>
+            <th>応募数</th>
+            <th class="text-center">ログイン</th></tr>
+          </thead>
+          <tbody></tbody>
+          <tbody>    <% User.all.each do |user| %>
+            <tr class="link">
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.kana %></td>
+            <td><%= user.sex %></td>
+            <td><%= User.find_by(id: user.id).job_users.count %></td>
+            <td class="small text-center"><a class="btn btn-xs btn-primary" target="_blank" data-confirm="既にログインしているウィンドウもこのユーザでのログインになります。" href="/mypage/<%= user.id %>">ログイン</a></td>
+              </tr>
+            </tbody>
+          <% end %></table>
+          </div>
+　　　　</div>
   </body>
 </html>
