@@ -6,9 +6,39 @@
       <%= stylesheet_link_tag "top", :media => "all" %>
   </head>
   <body>
-    新規ユーザー登録
-    <form method="post" action="user/new">
-     <input name="authenticity_token" type="hidden" value="1234" />
+    <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a href="/user">新規登録</li>
+          <li><a href="/logout">ログアウト</li>
+          <li><a href="/admin_top">adminログイン</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo" href="/top"><img class="logo_header" src="http://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/ra112/users/5/1/8/9/buffie1019-img600x600-1414479649tcza9m19724.jpg" alt="Logo header"></a>
+
+
+      <ul class="header-middle__nav">
+
+          <li><a href="/list" rel="nofollow"><i class="icon-paper-plane"></i>求人を探す</a></li>
+          <li><a href="/mypage/entries" rel="nofollow"><i class="icon-folder"></i>応募管理</a></li>
+          <li><a href="/login/thanks" class="crrent"><i class="icon-user-1"></i>マイページ</a></li>
+      </ul>
+
+        </div>
+      </div>
+
+      <div class="content">
+        <form method="post" action="user/new">
+         <input name="authenticity_token" type="hidden" value="1234" />
+         <h2 class="heading2-pt6 mt_30">新規登録</h2>
+
+
+
 
     <p>名前<br>
       <input type="text" name="name" size="50" placeholder="山田花子"></p>
@@ -22,11 +52,12 @@
     <p>メールアドレス<br>
       <input type="text" name="email" size="50" placeholder="hanako@gmail.com"></p>
     <p>パスワード<br>
-      <input type="password" name="password" size="50" placeholder="******"></p>
+      <input type="password" name="password" size="50" placeholder="******"></p><br>
 
 
-   <button type="submit" name="edit">作成</button>
 
+<input type="submit" name="edit" value="新規登録する" class="btn btn--pt3 btn--large w-280px submit_btn" >
+  </div>
 
      <!-- <button type="search" name="button"
        style="background-color:peachpuff;width:200px;height:28px;"

@@ -2,6 +2,7 @@ class JobController < ApplicationController
   def do
     @job_id = params[:id]
     @job = Job.find_by(id: @job_id)
+    @picture = @job.picture
 end
 
 
@@ -34,6 +35,16 @@ end
 def entry
   @job = params[:id]
   @_current_user ||= User.find_by(id: session[:user_id])
+end
+
+def create_pic
+  @picture = Picture.new(picture_params)
+  @picture.save
+  redirect_to '/pictures'
+end
+
+def picture_params
+    params.require(:picture).permit(:name,:photo)
 end
 
 

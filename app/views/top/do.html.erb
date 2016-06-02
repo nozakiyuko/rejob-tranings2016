@@ -14,9 +14,9 @@
     <div class="header-top">
       <div class="container">
         <ul class="header-top__navi">
-          <li><a href="/user">新規登録</a></li>
-          <li><a href="/logout">ログアウト</a></li>
-          <li><a href="/admin_top">adminログイン</a></li>
+          <li><a href="/user">新規登録</li>
+          <li><a href="/logout">ログアウト</li>
+          <li><a href="/admin_top">adminログイン</li>
         </ul>
       </div>
     </div>
@@ -26,11 +26,8 @@
 
 
       <ul class="header-middle__nav">
-        <li>
-          <a href="/job_keep" rel="nofollow"><i class="icon-attach"></i>キープ
-          </a>
-        </li>
-          <li><a href="/mypage/job_scouts" rel="nofollow"><i class="icon-paper-plane"></i>スカウト管理</a></li>
+
+          <li><a href="/list" rel="nofollow"><i class="icon-paper-plane"></i>求人を探す</a></li>
           <li><a href="/mypage/entries" rel="nofollow"><i class="icon-folder"></i>応募管理</a></li>
           <li><a href="/login/thanks" class="crrent"><i class="icon-user-1"></i>マイページ</a></li>
       </ul>
@@ -38,33 +35,152 @@
         </div>
       </div>
 
-<div class="key-visual-top"><img class="happyhappy2016" src="https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e15/1515282_142478636125723_1131356521_n.jpg" alt="happyhappy2016"></div>
+<div class="key-visual-top">
+  <img class="happyhappy2016" src="https://d13yacurqjgara.cloudfront.net/users/213309/screenshots/2432274/happy2016_1x.png" alt="happyhappy2016">
+</div>
+
+<div class="content">
+<br><h1 class="txt_size_18 mb_30">nozakiyukohappyhappy2016</h1>
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+</div>
 
 
-    <div>
-      <h1>happyhappy2016</h1>
+<div class="content mt_30">
+  <div class="content-main">
+        <section class="box-pt1 mb_20">
+              <div class="heading2-pt2 heading2-pt2--border-bt">
+                <h2>求人一覧ページへ</h2>
+              </div>
+              <dl class="list-dl-pt3 list-dl-pt3--dt14em txt_size_12">
+                  <dt>
+                    <span class="icon-right-dir"></span>美容
+                  </dt>
+                  <dd>
+                    <ul class="ul-inline ul-inline--cut">
+                        <li>
+                          <a href="/list">▷▷一覧へ</a>
+                        </li>
+                      </dl>
+            </section>
+            <section class="box-pt1 mb_20">
+                      <div class="heading2-pt2 heading2-pt2--border-bt">
+                        <h2>ピックアップ求人</h2>
+                      </div>
+                      <div class="row row-mg mb_20">
+
+                          <div class="cols_4 boxset-pt1">
+                            <a href="/job/11">
+                                <figure><img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/kiayTp/LwmDLP/dJBBb3/7ZPKX7/qFs/recommend.jpg?1456278400" alt=""></figure>
+                              <h3 class="boxset-pt1__title">
+                                『★未経験も充実した研修で安心。一緒に働きましょう♪』<br>今までの経験を活かしたい方も未経験者の方でも、是非ご応募お待ちしております☆ *充実の研修制度* 転職される方や、ブランクがある方でもご安心ください!
+                              </h3>
+                            </a>
+                            <p class="boxset-pt1__corp"></p>
+                            <dl class="boxset-pt1__terms">
+                              <dt>勤務地</dt>
+                              <dd>
+                                愛知県
+                              </dd>
+                              <dt>職種</dt>
+                              <dd>
+                                エステティシャン
+                              </dd>
+                            </dl>
+                          </div>
+
+                          <div class="cols_4 boxset-pt1">
+                            <a href="/job/14">
+                                <figure><img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/iY5pYN/T39Ilu/qta0Dv/0Ajupf/1p0/recommend.jpg?1458010645" alt=""></figure>
+                              <h3 class="boxset-pt1__title">
+                                『スタッフ達にものすごく大人気の☆自由シフト制☆(^^♪』<br>オープンしてもうすぐ1年のお店ですが、スタッフ同士がとっても仲良しなので、日々楽しく働けますよ。(^^♪
+                              </h3>
+                            </a>
+                            <p class="boxset-pt1__corp"></p>
+                            <dl class="boxset-pt1__terms">
+                              <dt>勤務地</dt>
+                              <dd>
+                                長野
+                              </dd>
+                              <dt>職種</dt>
+                              <dd>
+                                美容師
+                              </dd>
+                            </dl>
+                          </div>
+                      </div>
+                    </section>
     </div>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <div>
-      <h1>案件</h1>
-        <a href="list">案件一覧へ</a>
-
-
-  <h2>新規案件</h2>
-  <a href="/job/1">案件1タイトル</a>
-
-  <h2>おすすめ案件</h2>
-  <a href="/job/2">案件2タイトル</a>
-
-<a href="/login/thanks">マイページログイン</a>
-
-<a href="image_test">テスト</a>
-
-
+    <div class="content-side">
+      <section class="box-side-nav box-side-nav--admission mb_20">
+          <div class="img_addmission">求人数　業界最大級！<br>\ 五分で登録完了 /</div>
+          <a href="/user" class="btn btn--pt1 btn--large w-block txt_size_16"><i class="icon-user"></i> 無料会員登録 </a>
+        </section>
+      <section class="box-side-nav">
+        <h2 class="box-side-nav__heading"><i class="icon-calendar"></i> 本日のhappyhappy2016</h2>
+        <p class="t_right txt_size_12">掲載求人 <span class="txt_size_26 rj_typo_color-c"><%= Job.count %></span> 件
+          <br> 登録者数 <span class="txt_size_26 rj_typo_color-c"><%= User.count %></span> 人
+        </p>
+        <p class="t_right txt_size_10">2016/06/01（現在）</p>
+      </section>
     </div>
+  </div>
+
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="row row-mg footer--content">
+        <div class="cols_6 f_left">
+          <dl class="footer-nav">
+            <dt><a href="https://relax-job.com/biyo">美容</a></dt>
+            <dd>
+              <ul class="ul-inline ul-inline--col5 ul--p_tb2">
+                <li><a href="https://relax-job.com/esthe">エステ</a></li>
+                <li><a href="https://relax-job.com/nail">ネイル</a></li>
+                <li><a href="https://relax-job.com/eyelist">アイリスト</a></li>
+                <li><a href="https://relax-job.com/biyoshi">美容師</a></li>
+                <li><a href="https://relax-job.com/biyobuin">美容部員</a></li>
+              </ul>
+            </dd>
+
+
+
+          <dl class="footer-nav">
+            <dt>企業様メニュー</dt>
+            <dd>
+              <ul class="ul-list-none ul--p_tb2">
+                <li><a href="admin_top" target="_blank">企業様ログイン</a></li>
+              </ul>
+            </dd>
+            <dt>happyhappy2016について</dt>
+            <dd>
+              <ul class="ul-list-none ul--p_tb2">
+                <li><a href="http://facebook.com/yuko6363" target="_blank">会社概要</a></li>
+
+              </ul>
+            </dd>
+          </dl>
+
+        <div class="cols_3 f_left">
+          <a class="footer--content__bunner" href="/lp/new_inquiry">
+            <img class="" src="https://s-media-cache-ak0.pinimg.com/236x/00/29/89/00298943ae0def6217c00bc1a269d8e0.jpg" alt="Img footerbunner">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container t_left">
+        <small>© happyhappy2016 Co.,Ltd. All Rights Reserved.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <div>
+    <a href="image_test">テスト</a>
+  </div>
   </body>
 </html>

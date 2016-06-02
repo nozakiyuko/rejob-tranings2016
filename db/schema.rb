@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160601045600) do
     t.string   "title"
     t.string   "description"
     t.string   "area"
-    t.binary   "image"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

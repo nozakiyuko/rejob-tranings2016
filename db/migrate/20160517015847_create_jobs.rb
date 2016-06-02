@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :area
-      t.binary :image
+      t.integer :picture_id
       t.timestamps nul: false
     end
   end

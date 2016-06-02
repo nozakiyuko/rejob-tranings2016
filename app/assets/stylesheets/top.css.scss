@@ -1688,7 +1688,7 @@
  }
 
  .img_addmission {
-     background-image: url(/images/user_frontend/pc/img_admission.png);
+    //  background-image: url(/images/user_frontend/pc/img_admission.png);
      width: 200px;
      height: 100px;
      text-indent: -99999px
@@ -2316,6 +2316,11 @@
 
  img.happyhappy2016{
    vertical-align: middle;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: auto;
+   margin-bottom: auto;
 
  }
 
@@ -2354,6 +2359,7 @@
      z-index: 1000
  }
 
+
  .key-visual-category {
      text-align: center;
      line-height: 0;
@@ -2376,7 +2382,7 @@
      width: 720px
  }
 
- .content .content-side {
+ .content-side {
      float: right;
      width: 230px
  }
@@ -3664,6 +3670,9 @@
  img.logo_header {
 width: 180px;
 height: 120px;
+// display: block;
+// margin-left: auto;
+// margin-right: auto;
 }
 
  .header-middle .header-happyhappy2016{
@@ -3884,7 +3893,7 @@ height: 120px;
  .footer .copyright {
      padding: 10px;
      text-align: center;
-     background: #ee828f;
+     background: #f08f9b;
      color: #fff;
      box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.03) inset
  }

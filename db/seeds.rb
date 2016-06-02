@@ -10,15 +10,14 @@ JobUser.all.destroy_all
 #   cities = City.create([{ area_name: 'Chicago' }, { area_name: 'Copenhagen' }])
 
 # area_names = Area.create([{ area_name: '北海道'}, { area_name: '東京'}, { area_name: '神奈川'}])
-User.create(name: '野崎優子', kana: 'ノザキユウコ', sex: '女', age: 22, email: 'nozaki@rejob.co.jp', password: 'a0000')
-User.create(name: '池上里実', kana: 'イケガミサトミ', sex: '女', age: 22, email: 'ikegami@rejob.co.jp', password: 'b0000')
-User.create(name: '荻野夏帆', kana: 'オギノカホ', sex: '女', age: 22, email: 'ogino@rejob.co.jp', password: 'c0000')
-User.create(name: '黒田蓮', kana: 'クロダレン', sex: '男', age: 23, email: 'kuroda@rejob.co.jp', password: 'd0000')
-User.create(name: '荒巻遵', kana: 'アラマキジュン', sex: '男', age: 23, email: 'aramaki@rejob.co.jp', password: 'e0000')
+User.create(name: '野崎優子', kana: 'ノザキユウコ', sex: '女性', age: 22, email: 'nozaki@rejob.co.jp', password: 'a0000')
+User.create(name: '池上里実', kana: 'イケガミサトミ', sex: '女性', age: 22, email: 'ikegami@rejob.co.jp', password: 'b0000')
+User.create(name: '荻野夏帆', kana: 'オギノカホ', sex: '女性', age: 22, email: 'ogino@rejob.co.jp', password: 'c0000')
+User.create(name: '黒田蓮', kana: 'クロダレン', sex: '男性', age: 23, email: 'kuroda@rejob.co.jp', password: 'd0000')
+User.create(name: '荒巻遵', kana: 'アラマキジュン', sex: '男性', age: 23, email: 'aramaki@rejob.co.jp', password: 'e0000')
 
-
-Job.create(title: '働くママさんも安心！', description: '周りには病院施設、調剤薬局などの施設が多数あり、女性のお客様の来店が非常に多いお店ですので女性の施術スタッフの方は働きやすい環境。', area: '東京都', image:'http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/73458_original.jpg')
-Job.create(title: '★新規Open★', description: '社内独立制度有り！ 将来独立開業したい方、FCにご興味のある方お待ちしております。', area: '福島県')
+Job.create(title: '働くママさんも安心！', description: '周りには病院施設、調剤薬局などの施設が多数あり、女性のお客様の来店が非常に多いお店ですので女性の施術スタッフの方は働きやすい環境。', area: '東京都')
+Job.create(title: '★新規Open★', description: '社内独立制度有り！ 将来独立開業したい方、FCにご興味のある方お待ちしております。', area: '福島県',)
 Job.create(title: '和やかな雰囲気の職場です★', description: '都会の喧騒を忘れ、リラックスリゾートで、お客様にあなたのすばらしい癒しを提供しませんか。', area: '神奈川県')
 Job.create(title: '経験者優遇します', description: '「ありがとう」と言える心を大切にし、 皆様から「ありがとう」と言われる企業として成長し続けます。', area: '埼玉県')
 Job.create(title: '社保完備！', description: '★完全週休2日制で仕事もプライベートも充実♪ ', area: '兵庫県')

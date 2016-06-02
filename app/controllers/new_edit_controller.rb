@@ -35,12 +35,15 @@ def index
 
   def create
     @job = Job.new
+    picture = Picture.new(picture_params)
+    # 写真保存処理
+    picture.save
     @job.title = params[:title]
     @job.description = params[:description]
     @job.area = params[:area]
     # @job.image = params[:image].read
     if
-      Job.create(title: params[:title], description: params[:description], area: params[:area], image: params[:image])
+      Job.create(title: params[:title], description: params[:description], area: params[:area], picture_id: picture.id)
       flash[:notice] = "送信完了"
       redirect_to '/admin_top'
     else
@@ -48,4 +51,7 @@ def index
       redirect_to '/index'
     end
   end
+  def picture_params
+      params.require(:picture).permit(:name,:photo)
+    end
 end

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'job/:id' => 'job#do'
   get 'entry/:id' => 'job#entry'
   get 'entry/entry/:id' => 'job#create'
-  post 'job' => 'job#create'
+  get 'job' => 'job#create_pic'
   get '/job/to_entry/:id' => 'job#to_entry'
 
   get 'mypage/:id' => 'mypage#do'

@@ -29,6 +29,79 @@
 
       <div id="page-wrapper">
         <h1 class="page-header">編集ページ</h1>
+        <div id="page-wrapper">
+          <h1 class="page-header">新規求人作成</h1>
+          <h2 class="headline">公開設定</h2>
+          <table class="table table-bordered">
+            <thead>
+              <tr class="active">
+                <th class="col-sm-2 text-center"></th>
+                <th class="col-sm-4">変更欄</th>
+              </tr>
+            </thead>
+            <tbody>
+              <form method="post" action="edit/<%= @job.id %>/thanks" enctype="multipart/form-data">
+              <tr>
+                <th class="text-right">求人コード</th>
+                  <td><%= @job.id %></td>
+              </tr>
+              <tr>
+                <th class="text-right">タイトル<span class="label label-danger label-margin-2px">必須</span></th>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-8 form-group">
+                        <input class="form-control" type="text" name="title" value="<%= @job.title%>">
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                <th class="text-right">説明文<span class="label label-danger label-margin-2px">必須</span></th>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-8 form-group">
+                        <textarea class="form-control" type="text" name="description" value="<%= @job.description %>">
+                           </textarea>
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                <th class="text-right">都道府県
+                  <span class="label label-danger label-margin-2px">必須</span></th>
+                    <td>
+                      <div class="row job_template_wrap">
+                        <div class="col-sm-4 form-group">
+                          <select class="form-control" name="area">
+                           <option selected><%= @job.area %></option>
+                            <% Area.all.each do |area| %>
+                              <option value=<%= area.area_name %>><%= area.area_name %><br>
+                              </option>
+                            <% end %></option>
+                        </select>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="text-right">画像<span class="label label-danger label-margin-2px">必須</span></th>
+                    <td>
+                      <div class="row">
+                        <div class="col-sm-8 form-group">
+                            <input id="picture_photo" name="picture[photo]" type="file" />
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+
+
+            </tbody>
+          </table>
+        <div class="btn-area text-right">
+          <input type="hidden" value="0" name="job[lock_version]" id="job_lock_version">
+          <input type="submit" name="edit" value="更新" class="btn btn-warning button-margin">
+          <a href="/delete/<%= @job.id %>" name="delete" class="btn btn-success button-margin">削除</a>
+        </div>
 
  <form method="post" action="edit/<%= @job.id %>/thanks">
   <input name="authenticity_token" type="hidden" value="1234" />

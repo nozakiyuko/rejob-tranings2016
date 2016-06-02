@@ -15,6 +15,7 @@ end
 
   def thanks
     if session[:user_id].present?
+       flash[:success] = "ログインしました!"
        redirect_to "/mypage/#{session[:user_id]}"
     else
        flash[:danger] = 'ログインしてください'
